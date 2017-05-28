@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %>种子下载,BT下载,迅雷下载,磁力链,torrent,ed2k-xbt</title>
+    <meta name="keywords" content="<%= title %>种子,BT下载,迅雷下载,磁力链,torrent,magnet,ed2k">
+    <meta name="description" content="<%= title %>种子下载,<%= title %>迅雷下载等由xbt提供。">
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap-glyphicons/1.0/css/bootstrap-glyphicons.css" type="text/css">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+<div class="navigation top-detail-page">
+    <nav>
+        <div class="logo pull-left">
+            <a href="<%= url %>"><img src="/public/images/logo.png" alt="x-bt"></a>
+        </div>
+        <div class="col-md-4">
+            <form id="search-form" action="/s" method="POST">
+                <div class="input-group">
+                    <input  class="form-control" type="text" id="search" title="Search" autocomplete="off" name="q" placeholder="世界那么大,我想搜搜看">
+                    <span class="input-group-btn"><button class="btn btn-default" type="submit">　search　</button></span>
+                </div>
+            </form>
+        </div>
+        <div class="clearfix"></div>
+        <div class="search-res-info">
+           the result comes from the internet
+        </div>
+    </nav>
+    <div class="detail-res">
+        <%- total %>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
+<script charset="gbk" type="text/javascript" src="//www.baidu.com/js/opensug.js"></script>
+<script src="/public/javascripts/main.js"></script>
+<footer>
+    <script src="https://s4.cnzz.com/z_stat.php?id=1261846285&web_id=1261846285" language="JavaScript"></script>
+</footer>
+</body>
+</html>
+
+
+
+
+
