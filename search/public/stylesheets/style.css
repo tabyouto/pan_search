@@ -169,6 +169,9 @@
 .search-res h2 {
   font-size: 18px;
 }
+.search-res ul {
+  padding: 0;
+}
 .search-res li {
   list-style: none;
   margin-bottom: 30px;
@@ -178,6 +181,9 @@
 .search-res strong {
   color: #ff2f2f;
   font-weight: normal;
+}
+.search-res cite strong {
+  color: inherit;
 }
 #pagination {
   list-style: none;
@@ -216,7 +222,8 @@
 #pagination li .sb_pagN:hover {
   background-color: transparent;
 }
-footer {
+footer,
+.b_hide {
   display: none;
 }
 .error {

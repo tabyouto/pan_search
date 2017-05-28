@@ -45,10 +45,12 @@ Base.prototype.specific = function(req, cb, next) {
 	let that = this;
 	async.auto({
 		init: function (callback) { //return true 自动执行下一步
-			let keyword = req.body.keyword;
+			var _url = req.originalUrl.toString().split('+')[1];
+			_url = _url.split('&')[0];
+			console.log(_url);
+			console.log(req.query.first);
             // http://cn.bing.com/search?q=site:pan.baidu.com 迅雷&go=搜索&qs=bs&form=QBRE&first=51&FORM=PERE3
-			let url = encodeURI('http://cn.bing.com/search?q=site:pan.baidu.com '+ keyword +'&go=搜索&qs=bs&form=QBRE&first='+ req.body.page +'&FORM=PERE3');
-            console.log(url);
+			let url = encodeURI('http://cn.bing.com/search?q=site:pan.baidu.com '+ decodeURI(_url) +'&go=搜索&qs=bs&form=QBRE&first='+ req.query.first +'&FORM=PERE3');
 			superagent.get(url).end(function (err, res) {
 				var $ = cheerio.load(res.text, {decodeEntities: false});
                 that.page = $('ol').find('.b_pag').html();
