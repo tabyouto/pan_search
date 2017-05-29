@@ -19,6 +19,14 @@
     });
 
 
+	function mouseHover() {
+		$('.hothead a').on('mouseover',function() {
+			$(this).addClass('current').siblings().removeClass('current');
+			$('.hot-resources').find('ul').eq($(this).data('id')-1).removeClass('hide').siblings('ul').addClass('hide');
+		})
+	}
+
+	mouseHover()
 
 
 

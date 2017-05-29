@@ -5,9 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= title %></title>
-    <meta name="keywords" content="<%= keywords %>">
-    <meta name="description" content="<%= description %>">
+    <title><%= common.title %></title>
+    <meta name="keywords" content="<%= common.keywords %>">
+    <meta name="description" content="<%= common.description %>">
     <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
@@ -20,12 +20,29 @@
     <div class="col-md-6 col-md-offset-3">
         <form id="search-form" action="/s" method="POST">
             <div class="input-group">
-                <input  class="form-control" type="text" id="search" title="Search" autocomplete="off" name="q" placeholder="I just want to search">
+                <input class="form-control" type="text" id="search" title="Search" autocomplete="off" name="q"
+                       placeholder="I just want to search">
                 <span class="input-group-btn"><button class="btn btn-default" type="submit">　search　</button></span>
             </div>
         </form>
-        <ul>
-        </ul>
+        <div class="hot-resources">
+            <h2>热门资源</h2>
+            <div class="row">
+                <div class="hothead">
+                    <% hotList.forEach(function( item,index) { %>
+                        <a href="javascript:void(0)" id="tab<%= index+1 %>" data-id="<%= index+1 %>" class="<% if(index==0){ %> current <% } %>"><%= item.nav %></a>
+                    <% }) %>
+                </div>
+                <% hotList.forEach(function(item,index) { %>
+                <ul id="toplist<%= index %>" class=" <% if(index !=0){ %> hide <% } %>">
+                    <% item.list.forEach(function(data,i){ %>
+                        <li><span class="num top<%= i+1 %>"><%= i+1 %></span><a target="_blank" href="http://192.168.199.140:3000/q/?q=<%= encodeURI(data) %>"><%= data %></a></li>
+                    <% }) %>
+                </ul>
+                <% }) %>
+            </div>
+
+        </div>
     </div>
 </div>
 

@@ -15,7 +15,8 @@ Base.prototype.init = function(req, cb, next) {
 	let that = this;
 	async.auto({
 		init: function (callback) { //return true 自动执行下一步
-			let keyword = req.params.name;
+			let keyword = req.params.name || req.query.q;
+			console.log(req.query.q);
 			let url = encodeURI('http://cn.bing.com/search?q=site:pan.baidu.com '+ keyword +'&go=搜索&qs=bs&form=QBRE');
 			superagent.get(url).end(function (err, res) {
 				var $ = cheerio.load(res.text, {decodeEntities: false});

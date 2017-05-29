@@ -4,11 +4,18 @@ var express = require('express');
 var router = express.Router();
 var async = require('async');
 var Base = require('../action/fun');
+var sqlAction = require('../common/mysql');
 
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-	res.render('index', headerCommon);
+	fetchHotData(function (data) {
+		res.render('index', {
+			common:headerCommon,
+			hotList: data
+		});
+		console.log(data);
+	});
 });
 
 
@@ -31,6 +38,19 @@ router.get('/search', function (req, res, next) {
 		});
 	});
 });
+
+/**
+ * hot search
+ */
+router.get('/q/', function (req, res, next) {
+	fetchList(req, next, function (data) {
+		res.render('search', {
+			common: headerCommon,
+			res: data
+		});
+	});
+});
+
 
 
 function fetchList(req, next,_cb) {
@@ -71,6 +91,15 @@ function fetchNextPage(req, next,_cb) {
 
 
 		}]
+	});
+}
+
+function fetchHotData(callback){
+	sqlAction.query('select nav,list from hot','',function(err,res) {
+		res.forEach(function(item) {
+			item.list = item.list.split(',');
+		});
+		callback && callback(res);
 	});
 }
 

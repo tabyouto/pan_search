@@ -166,6 +166,64 @@
   margin-top: 40px;
   width: 800px;
 }
+.hot-resources h2 {
+  font-size: 14px;
+  background-color: #FFFAE9;
+  color: #F60;
+  padding: 10px 10px;
+}
+.hot-resources li {
+  margin: 0 !important;
+  list-style: none;
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 2px 5px 2px 25px;
+}
+.hot-resources .num {
+  display: inline-block;
+  padding: 0px 6px;
+  margin-right: 10px;
+  border-radius: 3px;
+  background-color: #c8c8c8;
+  font-size: 12px;
+  color: #fff;
+}
+.hot-resources .top1,
+.hot-resources .top2,
+.hot-resources .top3 {
+  background-color: #ff7d7d;
+}
+.hot-resources .row {
+  margin: 0;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
+}
+.hot-resources ul {
+  padding: 7px 0 15px;
+  overflow: hidden;
+}
+.hot-resources .hothead {
+  background-color: #fff0f0;
+  height: 42px;
+  line-height: 42px;
+}
+.hot-resources .hothead a {
+  text-decoration: none;
+  color: #585858;
+  display: block;
+  float: left;
+  width: 16.666%;
+  text-align: center;
+  height: 42px;
+  border-left: 1px solid #ffe2e2;
+}
+.hot-resources .hothead a:first-child {
+  border: none;
+}
+.hot-resources .hothead a.current {
+  background-color: #fff;
+}
 .search-res h2 {
   font-size: 18px;
 }
